@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+// https://softeer.ai/practice/6247/talk
 // 이진 탐색을 위한 비교 함수
 int compare(const void *a, const void *b) {
     return (*(int*)a - *(int*)b);
