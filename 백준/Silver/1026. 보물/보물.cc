@@ -1,28 +1,34 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
+#include "bits/stdc++.h"
 using namespace std;
-int main() {
 
-	int N;
-	cin >> N;
-	vector <int>A;
-	vector <int>B;
-	for (int i = 0; i < N; i++) {
-		int temp;
-		cin >> temp;
-		A.push_back(temp);
-	}
-	for (int i = 0; i < N; i++) {
-		int temp;
-		cin >> temp;
-		B.push_back(temp);
-	}
-	sort(A.begin(), A.end());
-	sort(B.begin(), B.end(), greater<int>());
-	int total=0;
-	for (int i = 0; i < N; i++) {
-		total += A[i] * B[i];
-	}
-	cout << total;
+int arr_A[51];
+int arr_B[51];
+
+bool cmp(int a, int b) {
+	return a > b;
 }
+
+int main() {
+	cin.tie(0);
+	ios::sync_with_stdio(0);
+	int result = 0;
+
+	int N; cin >> N;
+	for (int i = 0; i < N; i++) {
+		cin >> arr_A[i];
+	}
+	for (int i = 0; i < N; i++) {
+		cin >> arr_B[i];
+	}
+
+	sort(arr_A, arr_A + N);
+	sort(arr_B, arr_B + N, cmp);
+
+	for (int i = 0; i < N; i++) {
+		result += arr_A[i] * arr_B[i];
+	}
+	cout << result;
+
+	return 0;
+}
+
